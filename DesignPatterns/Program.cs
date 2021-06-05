@@ -19,7 +19,9 @@ namespace DesignPatterns
             //TemplateMethod();
 
             //Decorator
-            Decorator();
+            //Decorator();
+
+            State();
 
             Console.ReadKey();
         }
@@ -76,5 +78,26 @@ namespace DesignPatterns
 
             Console.WriteLine(valor);
         }
+
+
+        private static void State()
+        {
+            Orcamento reforma = new Orcamento(500);
+
+            Console.WriteLine(reforma.Valor);
+
+            reforma.AplicaDescontoExtra();
+            Console.WriteLine(reforma.Valor);
+
+            reforma.Aprova();
+
+            reforma.AplicaDescontoExtra();
+            Console.WriteLine(reforma.Valor);
+
+            reforma.Finaliza();
+
+            reforma.AplicaDescontoExtra();
+        }
+
     }
 }
