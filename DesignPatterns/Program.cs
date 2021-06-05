@@ -24,26 +24,9 @@ namespace DesignPatterns
             Console.ReadKey();
         }
 
-        //Utilizado quando um objeto precisa fazer muita coisa, 
-        private static void Decorator()
-        {
-            Imposto iss = new ISS(new ICMS(new ICPP()));
 
-            Orcamento orcamento = new Orcamento(500.0);
 
-            double valor = iss.Calcula(orcamento);
-
-            Console.WriteLine(valor);
-        }
-
-        //Template Method com Compartamentos Compostos /" Decorator"
-        //Onde apos aplicr um imposto aplica outro que recebe por parametro
-        private static void TemplateMethod()
-        {
-          //Foi criado apenas a Classe de Template de Impostos
-          //Semelhante a Base Aplicação do Agro
-        }
-
+        //Strategy
         private static void Strategy()
         {
             Imposto iss = new ISS();
@@ -72,6 +55,26 @@ namespace DesignPatterns
             double desconto = calculador.Calcula(orcamento);
 
             Console.WriteLine(desconto);
+        }
+
+        //Template Method com Compartamentos Compostos /" Decorator"
+        //Onde apos aplicr um imposto aplica outro que recebe por parametro
+        private static void TemplateMethod()
+        {
+            //Foi criado apenas a Classe de Template de Impostos
+            //Semelhante a Base Aplicação do Agro
+        }
+
+        //Utilizado quando um objeto precisa fazer muita coisa, 
+        private static void Decorator()
+        {
+            Imposto iss = new ISS(new ICMS(new ICPP()));
+
+            Orcamento orcamento = new Orcamento(500.0);
+
+            double valor = iss.Calcula(orcamento);
+
+            Console.WriteLine(valor);
         }
     }
 }
