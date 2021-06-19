@@ -1,8 +1,10 @@
 ﻿using DesignPatterns._2_ChainOfResponsibility;
 using DesignPatterns._3_TemplateMethod;
+using DesignPatterns._6_Builder;
 using DesignPatterns.Strategy;
 using DesignPatterns.Strategy.Interface;
 using System;
+using System.Collections.Generic;
 
 namespace DesignPatterns
 {
@@ -21,9 +23,24 @@ namespace DesignPatterns
             //Decorator
             //Decorator();
 
-            State();
+            //State();
+
+            Builder();
 
             Console.ReadKey();
+        }
+
+        private static void Builder()
+        {
+            var criador = new NotaFiscalBuilder();
+
+            var notaFiscal = criador.ParaEmpresa("Alura Cursos Online")
+                                    .ComCnpj("999.999.9999/99")
+                                    .ComObservacao("Exemplo do padrão Builder")
+                                    .NaDataAtual()
+                                    .ComItem(new ItemDaNota("Curso de C#", 55.47))
+                                    .ComItem(new ItemDaNota("Curso de Python", 60.45))
+                                    .Constroi();
         }
 
 
