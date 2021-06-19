@@ -1,9 +1,4 @@
 ﻿using DesignPatterns.Strategy.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns._3_TemplateMethod
 {
@@ -19,7 +14,7 @@ namespace DesignPatterns._3_TemplateMethod
 
         public override double MaximaTaxacao(Orcamento orcamento)
         {
-           return orcamento.Valor * 0.01; ;
+            return orcamento.Valor * 0.01; ;
         }
 
         public override double MinimaTaxacao(Orcamento orcamento)

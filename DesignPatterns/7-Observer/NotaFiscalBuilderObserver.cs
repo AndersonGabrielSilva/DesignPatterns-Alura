@@ -1,9 +1,6 @@
 ﻿using DesignPatterns._6_Builder;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns._7_Observer
 {
@@ -18,7 +15,9 @@ namespace DesignPatterns._7_Observer
 
         private IList<ItemDaNota> todosItens = new List<ItemDaNota>();
 
+        private IList<IAcaoAposCriarNota> todasAcoesASeremExecutadas = new List<IAcaoAposCriarNota>();
 
+        #region Metodos Builder
         public NotaFiscalBuilderObserver ParaEmpresa(string razaoSocial)
         {
             this.RazaoSocial = razaoSocial;
@@ -56,8 +55,27 @@ namespace DesignPatterns._7_Observer
 
         public NotaFIscal Constroi()
         {
-            return new NotaFIscal (RazaoSocial, Cnpj, DataEmissao, valorTotal, impostos, Observacao, todosItens);
+            var nf = new NotaFIscal(RazaoSocial, Cnpj, DataEmissao, valorTotal, impostos, Observacao, todosItens);
+
+            #region Acoes realizadas apos gerar Nota
+            foreach (IAcaoAposCriarNota acao in todasAcoesASeremExecutadas)
+            {
+                acao.Executa(nf);
+            }
+            #endregion
+
+            return nf;
         }
+        #endregion
+
+        #region Metodos Observer
+        public NotaFiscalBuilderObserver AdicionaAcao(IAcaoAposCriarNota novaAcao)
+        {
+            this.todasAcoesASeremExecutadas.Add(novaAcao);
+
+            return this;
+        }
+        #endregion
 
     }
 }

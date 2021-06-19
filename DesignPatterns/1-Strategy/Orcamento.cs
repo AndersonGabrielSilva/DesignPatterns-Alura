@@ -1,16 +1,11 @@
 ﻿using DesignPatterns._2_ChainOfResponsibility;
 using DesignPatterns._5_State;
-using DesignPatterns._5_State.Enum;
 using DesignPatterns._5_State.Interface;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns
 {
-   public class Orcamento
+    public class Orcamento
     {
         public double Valor { get; set; }
 

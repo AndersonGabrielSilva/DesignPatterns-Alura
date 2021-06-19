@@ -1,9 +1,4 @@
 ﻿using DesignPatterns.Strategy.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns._3_TemplateMethod
 {
@@ -26,6 +21,6 @@ namespace DesignPatterns._3_TemplateMethod
 
         public abstract double MaximaTaxacao(Orcamento orcamento);
 
-        public  abstract bool DeveUsarAMaximaTaxacao(Orcamento orcamento);
+        public abstract bool DeveUsarAMaximaTaxacao(Orcamento orcamento);
     }
 }

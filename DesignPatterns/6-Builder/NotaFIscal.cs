@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns._6_Builder
 {
@@ -29,6 +26,6 @@ namespace DesignPatterns._6_Builder
         public double Impostos { get; set; }
         public IList<ItemDaNota> Itens { get; set; }
         public string Observacoes { get; set; }
-        
+
     }
 }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns._6_Builder
 {
@@ -55,7 +52,7 @@ namespace DesignPatterns._6_Builder
 
         public NotaFIscal Constroi()
         {
-            return new NotaFIscal (RazaoSocial, Cnpj, DataEmissao, valorTotal, impostos, Observacao, todosItens);
+            return new NotaFIscal(RazaoSocial, Cnpj, DataEmissao, valorTotal, impostos, Observacao, todosItens);
         }
 
     }
