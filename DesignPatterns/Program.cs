@@ -2,9 +2,12 @@
 using DesignPatterns._3_TemplateMethod;
 using DesignPatterns._6_Builder;
 using DesignPatterns._7_Observer;
+using DesignPatterns._8_Factory;
 using DesignPatterns.Strategy;
 using DesignPatterns.Strategy.Interface;
 using System;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace DesignPatterns
 {
@@ -30,7 +33,10 @@ namespace DesignPatterns
             //Aprovaita o padrao builder
             Observer();
 
+            IDbConnection connection = new ConnectionFactory().GetConnection();
 
+            IDbCommand comando = connection.CreateCommand();
+            comando.CommandText = "select*from tabela";
 
             Console.ReadKey();
         }
