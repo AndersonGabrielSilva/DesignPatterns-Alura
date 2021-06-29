@@ -3,9 +3,11 @@ using DesignPatterns._3_TemplateMethod;
 using DesignPatterns._6_Builder;
 using DesignPatterns._7_Observer;
 using DesignPatterns._8_Factory;
+using DesignPatterns._9_Flyweight;
 using DesignPatterns.Strategy;
 using DesignPatterns.Strategy.Interface;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -31,14 +33,45 @@ namespace DesignPatterns
             //Builder();
 
             //Aprovaita o padrao builder
-            Observer();
+            //Observer();
 
+            //Factory();
+
+            //Utilizado para não criar varias intancias, do mesmo objeto. Cria apenas uma unica vez o objeto; 
+            Fleyweigh();
+
+            Console.ReadKey();
+        }
+
+        private static void Fleyweigh()
+        {
+            var notasMusicas = new NotasMusicais();
+
+            IList<INota> musica = new List<INota>()
+            {
+                notasMusicas.GetNota("do"),
+                notasMusicas.GetNota("re"),
+                notasMusicas.GetNota("mi"),
+                notasMusicas.GetNota("fa"),
+                notasMusicas.GetNota("fa"),
+                notasMusicas.GetNota("fa"),
+                notasMusicas.GetNota("do"),
+                notasMusicas.GetNota("re"),
+                notasMusicas.GetNota("do"),
+                notasMusicas.GetNota("re"),
+                notasMusicas.GetNota("sol"),
+                notasMusicas.GetNota("la"),
+            };
+
+            new Piano().Toca(musica);
+        }
+
+        private static void Factory()
+        {
             IDbConnection connection = new ConnectionFactory().GetConnection();
 
             IDbCommand comando = connection.CreateCommand();
             comando.CommandText = "select*from tabela";
-
-            Console.ReadKey();
         }
 
         private static void Observer()
