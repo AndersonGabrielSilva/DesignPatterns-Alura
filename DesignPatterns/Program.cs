@@ -1,4 +1,5 @@
-﻿using DesignPatterns._2_ChainOfResponsibility;
+﻿using DesignPatterns._10_Memento;
+using DesignPatterns._2_ChainOfResponsibility;
 using DesignPatterns._3_TemplateMethod;
 using DesignPatterns._6_Builder;
 using DesignPatterns._7_Observer;
@@ -38,9 +39,33 @@ namespace DesignPatterns
             //Factory();
 
             //Utilizado para não criar varias intancias, do mesmo objeto. Cria apenas uma unica vez o objeto; 
-            Fleyweigh();
+            //Fleyweigh();
+
+            //O Memento é utilizado sempre que necessitamos armazenar o estado de um elemento para ser possivel recuperar depois o mesmo estado
+            Memento();
 
             Console.ReadKey();
+        }
+
+        private static void Memento()
+        {
+            var historicoContrato = new HistoricoContrato();
+
+            var contrato = new Contrato("Anderson", DateTime.Now, TipoContrato.Novo);
+            historicoContrato.Adiciona(contrato.SalvaEstado());
+
+            contrato.Avanca();
+            historicoContrato.Adiciona(contrato.SalvaEstado());
+
+            contrato.Avanca();
+            historicoContrato.Adiciona(contrato.SalvaEstado());
+
+            contrato.Avanca();
+            historicoContrato.Adiciona(contrato.SalvaEstado());
+
+            Console.WriteLine(contrato.Tipo);
+
+            Console.WriteLine(historicoContrato.Pega(TipoContrato.EmAndamento).Contrato.Tipo);
         }
 
         private static void Fleyweigh()

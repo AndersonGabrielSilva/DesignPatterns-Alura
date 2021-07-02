@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="4-Decorator\" />
+    <Folder Include="04-Decorator\" />
   </ItemGroup>
 
   <ItemGroup>
